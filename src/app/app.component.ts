@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-
+import { UsersdataService } from './services/usersdata.service'
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
@@ -7,4 +7,11 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'snipcart-angular';
+  users:any;
+  constructor(private userdata:UsersdataService){
+    this.userdata.users().subscribe((data)=>{
+      this.users=data;
+    })
+  }
+
 }
