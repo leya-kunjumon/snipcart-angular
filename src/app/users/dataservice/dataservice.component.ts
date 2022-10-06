@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { UsersdataService } from 'src/app/services/usersdata.service';
-// import { UsersdataService } from './services/Usersdata.Service';
+
 @Component({
   selector: 'app-dataservice',
   templateUrl: './dataservice.component.html',
@@ -10,8 +10,10 @@ export class DataserviceComponent implements OnInit {
  
   users:any;
   constructor(private userdata: UsersdataService){
-    this.userdata.users().subscribe((data)=>{
-      this.users=data;
+    this.userdata.users().subscribe((data:any)=>{
+      console.log(data)
+      this.users= data.products;
+      console.log(this.users)
     })
   }
   ngOnInit(): void {
