@@ -1,0 +1,15 @@
+<div class="container-fluid mt-5" style="background-color: grey;">
+
+    <div class="container">
+       <div class="row ">
+        <div class="card " *ngFor="let prod of products" style="width:300px;margin-left:20px">
+          <img class="card-img-top" [src]="prod.imag" alt="Card image" width="200" height="240">
+          <div class="card-body">
+            <h4 class="card-title">{{prod.name}}</h4>
+            <p class="card-text">{{prod.price}}/- Rs</p>
+            <button class="btn btn-primary text-center">View</button>
+        </div>
+          </div>
+</div>
+</div>
+</div>

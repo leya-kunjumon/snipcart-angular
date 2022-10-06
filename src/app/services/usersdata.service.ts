@@ -5,7 +5,7 @@ import { HttpClient } from '@angular/common/http'
   providedIn: 'root'
 })
 export class UsersdataService {
-  url = 'https://dummyjson.com/products'
+  url = 'https://dummyjson.com/users'
   constructor(private http:HttpClient) { }
   users(){
     

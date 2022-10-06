@@ -11,8 +11,7 @@ export class DataserviceComponent implements OnInit {
   users:any;
   constructor(private userdata: UsersdataService){
     this.userdata.users().subscribe((data:any)=>{
-      console.log(data)
-      this.users= data.products;
+      this.users= data.users;//data in users array
       console.log(this.users)
     })
   }

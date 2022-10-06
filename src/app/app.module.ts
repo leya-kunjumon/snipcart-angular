@@ -8,7 +8,8 @@ import { RegisterComponent } from './users/register/register.component';
 import { LoginComponent } from './users/login/login.component';
 import { FormsModule,ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
-import { DataserviceComponent } from './users/dataservice/dataservice.component'
+import { DataserviceComponent } from './users/dataservice/dataservice.component';
+import { ProductsComponent } from './users/products/products.component';
 
 
 @NgModule({
@@ -17,7 +18,8 @@ import { DataserviceComponent } from './users/dataservice/dataservice.component'
     HomeComponent,
     RegisterComponent,
     LoginComponent,
-    DataserviceComponent
+    DataserviceComponent,
+    ProductsComponent
   ],
   imports: [
     BrowserModule,
