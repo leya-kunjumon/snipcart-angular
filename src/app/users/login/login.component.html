@@ -1,20 +1,25 @@
 <div class="container mt-5" style="background-color:crimson ;width:320px">
     <h2 class="text-light text-center">Login form</h2>
     <form [formGroup]="login">
-      <div class="form-group">
-        <label for="email">Name:</label>
-        <input type="text" class="form-control" id="name" placeholder="Enter name" name="name" formControlName="name">
-      </div>
+      
       <div class="form-group">
         <label for="mail">Email:</label>
         <input type="text" class="form-control" id="email" placeholder="Enter email" name="email" formControlName="email">
+      
       </div>
+      <span class="text-dark" *ngIf="login.controls['email'].dirty && login.hasError('required','email')">*Email is Required</span>
+      <div class="form-group">
+        <label for="mail">Password:</label>
+        <input type="text" class="form-control" id="pswd" placeholder="Enter Password" name="pswd" formControlName="pswd">
+      
+      </div> 
+      <span class="text-dark" *ngIf="login.controls['pswd'].dirty && login.hasError('required','pswd')">*Password is Required</span>
       <div class="form-group form-check">
         <label class="form-check-label">
           <input class="form-check-input" type="checkbox" name="remember"> Remember me
         </label>
       </div>
-      <button type="submit" (click)="loginsubmit(login.value)" [disabled]="login.invalid" class="btn btn-primary mb-4 mt-4 login">Login</button>
+      <button type="submit" (click)="loginsubmit()" [disabled]="login.invalid" class="btn btn-primary mb-4 mt-4 login">Login</button>
       <button type="submit" (click)="signupsubmit()" class="btn btn-primary mb-4 mt-4 sign">Sign Up</button>
 
     </form>

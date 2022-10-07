@@ -2,24 +2,28 @@
     <h2 class="text-light text-center">Register form</h2>
     <form #myForm="ngForm" [formGroup]="register" (ngSubmit)="signupsubmit()">
       <div class="form-group">
-        <label for="email">FirstName:</label>
+        <label for="email">Full Name:</label>
         <input type="text" class="form-control" id="name" placeholder="Enter name" name="name" formControlName="fname">
-      </div>
-      <div class="form-group">
-        <label for="email">LastName:</label>
-        <input type="text" class="form-control" id="lname" placeholder="Enter name" name="lname" formControlName="lname">
-      </div>
+       </div>
+      <span class="text-dark" *ngIf="register.controls['fname'].dirty && register.hasError('required','fname')">*Full name is Required</span>
       <div class="form-group">
         <label for="mail">Email:</label>
         <input type="text" class="form-control" id="email" placeholder="Enter email" name="email" formControlName="email">
+      
       </div>
+      <span class="text-dark" *ngIf="register.controls['email'].dirty && register.hasError('required','email')">*Email is Required</span>
+      <div class="form-group">
+        <label for="mail">Password:</label>
+        <input type="text" class="form-control" id="pswd" placeholder="Enter Password" name="pswd" formControlName="pswd">
+       <span class="text-dark" *ngIf="register.controls['pswd'].dirty && register.hasError('required','pswd')">*password is Required</span>
+      </div> 
       <div class="form-group form-check">
         <label class="form-check-label">
           <input class="form-check-input" type="checkbox" name="remember"> Remember me
         </label>
       </div>
       
-      <button type="submit" class="btn btn-primary mb-4 mt-4 sign">Sign Up</button>
+      <button type="submit" class="btn btn-primary mb-4 mt-4 " [disabled]="register.invalid">Sign Up</button>
 
     </form>
   </div>

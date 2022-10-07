@@ -19,6 +19,7 @@
     "@angular/platform-browser": "~12.2.0",
     "@angular/platform-browser-dynamic": "~12.2.0",
     "@angular/router": "~12.2.0",
+    "angular-webstorage-service": "^1.0.2",
     "bootstrap": "^5.2.2",
     "ng2-search-filter": "^0.5.1",
     "ngx-order-pipe": "^2.2.0",

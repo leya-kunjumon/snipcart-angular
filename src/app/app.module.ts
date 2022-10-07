@@ -14,6 +14,7 @@ import { NgxPaginationModule } from 'ngx-pagination';
 import { Ng2SearchPipeModule } from 'ng2-search-filter';
 import { OrderModule } from 'ngx-order-pipe';
 
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -31,7 +32,8 @@ import { OrderModule } from 'ngx-order-pipe';
     HttpClientModule, 
     NgxPaginationModule,
     Ng2SearchPipeModule,
-    OrderModule
+    OrderModule,
+   
     
   ],
   providers: [],
