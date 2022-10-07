@@ -20,7 +20,7 @@ export class LoginComponent implements OnInit {
   }
 loginsubmit(data:any){
   console.log(data);
-  this.router.navigate(['home']);
+  this.router.navigate(['products']);
 }
 signupsubmit(){
   this.router.navigate(['register']);

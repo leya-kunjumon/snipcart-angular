@@ -10,7 +10,9 @@ import { FormsModule,ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { DataserviceComponent } from './users/dataservice/dataservice.component';
 import { ProductsComponent } from './users/products/products.component';
-
+import { NgxPaginationModule } from 'ngx-pagination';
+import { Ng2SearchPipeModule } from 'ng2-search-filter';
+import { OrderModule } from 'ngx-order-pipe';
 
 @NgModule({
   declarations: [
@@ -26,7 +28,10 @@ import { ProductsComponent } from './users/products/products.component';
     AppRoutingModule,
     FormsModule,
     ReactiveFormsModule,
-    HttpClientModule
+    HttpClientModule, 
+    NgxPaginationModule,
+    Ng2SearchPipeModule,
+    OrderModule
     
   ],
   providers: [],
