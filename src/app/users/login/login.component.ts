@@ -1,4 +1,4 @@
-import { Component, OnInit,Output, EventEmitter  } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { FormBuilder,FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { SharedService } from 'src/app/services/shared.service';
@@ -18,8 +18,7 @@ export class LoginComponent implements OnInit {
   umail :any;
   upswd:any;
   dataa :any;
-  constructor(private fb:FormBuilder,private router:Router,public share : SharedService) { }
-  
+  constructor(private fb:FormBuilder,private router:Router,public share : SharedService) {}
   
   ngOnInit(): void {
     this.login = this.fb.group({
@@ -30,14 +29,14 @@ export class LoginComponent implements OnInit {
   
   }
 loginsubmit(){
-  this.share.message = this.umail;
+   
   this.loginData = localStorage.getItem('name');
   console.log(this.loginData);
   this.data = JSON.parse(this.loginData)
   console.log(this.data[0].email);
   console.log(this.data[0].pswd);
   console.log(this.umail);
-  
+  this.share.message = this.data[0].fname; 
   this.data1 = this.data[0].email;
   this.data2 = this.data[0].pswd;
   if (this.data1 === this.umail && this.data2 === this.upswd){

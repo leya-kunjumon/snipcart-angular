@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { SharedService } from 'src/app/services/shared.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-products',
@@ -23,14 +24,14 @@ export class ProductsComponent implements OnInit {
     {name:'Oreo Cake',imag:'https://simshomekitchen.com/wp-content/uploads/2022/07/cookies-and-cream-chocolate-cake.png',price:1100},
   ];
   
-  constructor(public share:SharedService) { 
+  constructor(public share:SharedService,private router:Router) { 
     
   }
 
-  ngOnInit(): void {
+  ngOnInit(): void {}
+  logout(){
+    this.router.navigate(['home']);
     
-
-    
-  }
+  } 
 
 }
