@@ -1,6 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit,Output, EventEmitter  } from '@angular/core';
 import { FormBuilder,FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
+import { SharedService } from 'src/app/services/shared.service';
 
 
 @Component({
@@ -16,16 +17,20 @@ export class LoginComponent implements OnInit {
   data2:any;
   umail :any;
   upswd:any;
-  constructor(private fb:FormBuilder,private router:Router) { }
-
+  dataa :any;
+  constructor(private fb:FormBuilder,private router:Router,public share : SharedService) { }
+  
+  
   ngOnInit(): void {
     this.login = this.fb.group({
    
     email:['',Validators.compose([Validators.required,Validators.email])],
     pswd:['',Validators.required]
-    });
+  });
+  
   }
 loginsubmit(){
+  this.share.message = this.umail;
   this.loginData = localStorage.getItem('name');
   console.log(this.loginData);
   this.data = JSON.parse(this.loginData)
@@ -41,9 +46,7 @@ loginsubmit(){
   }else{
     this.router.navigate(['login']);
   }
-  
-  
-}
+  }
 signupsubmit(){
   this.router.navigate(['register']);
 
