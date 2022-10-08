@@ -11,7 +11,11 @@ import { Router } from '@angular/router';
 export class LoginComponent implements OnInit {
   login:any = FormGroup;
   loginData:any;
-  
+  data :any;
+  data1 :any;
+  data2:any;
+  umail :any;
+  upswd:any;
   constructor(private fb:FormBuilder,private router:Router) { }
 
   ngOnInit(): void {
@@ -24,8 +28,20 @@ export class LoginComponent implements OnInit {
 loginsubmit(){
   this.loginData = localStorage.getItem('name');
   console.log(this.loginData);
-  console.log(this.loginData[0].email)
-  this.router.navigate(['login']);
+  this.data = JSON.parse(this.loginData)
+  console.log(this.data[0].email);
+  console.log(this.data[0].pswd);
+  console.log(this.umail);
+  
+  this.data1 = this.data[0].email;
+  this.data2 = this.data[0].pswd;
+  if (this.data1 === this.umail && this.data2 === this.upswd){
+    this.router.navigate(['products']);
+
+  }else{
+    this.router.navigate(['login']);
+  }
+  
   
 }
 signupsubmit(){
