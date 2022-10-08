@@ -11,6 +11,7 @@ import { Router } from '@angular/router';
 export class LoginComponent implements OnInit {
   login:any = FormGroup;
   loginData:any;
+  
   constructor(private fb:FormBuilder,private router:Router) { }
 
   ngOnInit(): void {
@@ -23,12 +24,9 @@ export class LoginComponent implements OnInit {
 loginsubmit(){
   this.loginData = localStorage.getItem('name');
   console.log(this.loginData);
-  if (JSON.parse(this.loginData.email && this.loginData.pswd) == this.login.value){
-    this.router.navigate(['products']);
-  }
-  else{
-    this.router.navigate(['login']);
-  }
+  console.log(this.loginData[0].email)
+  this.router.navigate(['login']);
+  
 }
 signupsubmit(){
   this.router.navigate(['register']);
