@@ -3,18 +3,18 @@
     <form #myForm="ngForm" [formGroup]="register" (ngSubmit)="signupsubmit()">
       <div class="form-group">
         <label for="email">Full Name:</label>
-        <input type="text" class="form-control" id="name" placeholder="Enter name" name="name" formControlName="fname">
+        <input type="text" class="form-control" id="name" placeholder="Enter name" name="name" [(ngModel)]="uname" formControlName="fname">
        </div>
       <span class="text-dark" *ngIf="register.controls['fname'].dirty && register.hasError('required','fname')">*Full name is Required</span>
       <div class="form-group">
         <label for="mail">Email:</label>
-        <input type="text" class="form-control" id="email" placeholder="Enter email" name="email" formControlName="email">
+        <input type="text" class="form-control" id="email" placeholder="Enter email" [(ngModel)]="umail" name="email" formControlName="email">
       
       </div>
       <span class="text-dark" *ngIf="register.controls['email'].dirty && register.hasError('required','email')">*Email is Required</span>
       <div class="form-group">
         <label for="mail">Password:</label>
-        <input type="text" class="form-control" id="pswd" placeholder="Enter Password" name="pswd" formControlName="pswd">
+        <input type="text" class="form-control" id="pswd" placeholder="Enter Password"  name="pswd" formControlName="pswd">
        <span class="text-dark" *ngIf="register.controls['pswd'].dirty && register.hasError('required','pswd')">*password is Required</span>
       </div> 
       <div class="form-group form-check">
@@ -23,7 +23,8 @@
         </label>
       </div>
       
-      <button type="submit" class="btn btn-primary mb-4 mt-4 " [disabled]="register.invalid">Sign Up</button>
+      <button type="submit" class="btn btn-primary mb-4 mt-4 "  [disabled]="register.invalid">Sign Up</button>
 
     </form>
+    <h6 style="color:white ;">{{val1}}</h6>
   </div>

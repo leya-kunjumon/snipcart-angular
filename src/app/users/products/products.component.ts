@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit,Input } from '@angular/core';
 import { SharedService } from 'src/app/services/shared.service';
 import { Router } from '@angular/router';
 
@@ -27,11 +27,8 @@ export class ProductsComponent implements OnInit {
   constructor(public share:SharedService,private router:Router) { 
     
   }
-
+  display = true;
   ngOnInit(): void {}
-  logout(){
-    this.router.navigate(['home']);
-    
-  } 
+  
 
 }
