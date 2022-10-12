@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder,FormGroup, Validators } from '@angular/forms';
+import { FormBuilder,FormGroup, Validators,FormControl  } from '@angular/forms';
 import { Router } from '@angular/router';
 @Component({
   selector: 'app-register',
@@ -10,8 +10,10 @@ export class RegisterComponent implements OnInit {
   register:any = FormGroup;
   user_list: any = [] ;
   dtt:any ;
+  
   constructor(private fb:FormBuilder,private router:Router) { }
-
+ 
+  
   ngOnInit(): void {
     this.register = this.fb.group({
       fname:['',Validators.required],
@@ -19,86 +21,53 @@ export class RegisterComponent implements OnInit {
       pswd:['',Validators.required]
 
       });
-      if (localStorage.getItem('name') != null ){
-
-        this.dtt = localStorage.getItem('name');
-        this.user_list.push(JSON.parse(this.dtt));
-
-       }
-      // localStorage.setItem('name',JSON.stringify(this.user_list))
+      
+      if (localStorage.getItem('userlist')  ){
+        
+        let users :any = localStorage.getItem('userlist');
+        this.user_list = JSON.parse(users);
+        console.log(this.user_list);
+        
+      }
+     
   };
   
   uname :any;
   umail :any;
-  val1 :any;
-  ln:any;
-  ntng :any;
-
+  // message :any;
+  
   signupsubmit(){
-    // this.dtt = localStorage.getItem('name');
-    // this.user_list.push(JSON.parse(this.dtt));
-    this.user_list.push(this.register.value)
-    localStorage.setItem("name",JSON.stringify(this.user_list));
-    this.router.navigate(['login']);
-    // if ( localStorage.getItem('name') == null ){
-     
-    // }
+    
+    if (this.user_list.length == 0){
+      this.user_list.push(this.register.value)
+      console.log(this.user_list)
+      this.router.navigate(['login']);
 
-    if (localStorage.getItem('name') != null ){
-      
+    }
+    else if(this.user_list.length >0){
       for (let i=0;i<this.user_list.length;i++){
-          
-          if (this.user_list[i].email != this.umail) {
-             console.log('hlo');
-             
-         
-         
-          }
-          else {
-            console.log('kkk')
-          }
-   }
-         }
+        console.log(this.user_list[i].email)
+        if (this.user_list[i].email != this.umail){
+          console.log('klo')
+          this.user_list.push(this.register.value)
+      
+          console.log(this.user_list)
+          this.router.navigate(['login']);
         }
-
+        else{
+          console.log('mm')
+          this.register.get('email')?.setErrors({ message : 'Email already exists' });
+          
+        }
       }
 
+    }
+    localStorage.setItem("userlist",JSON.stringify(this.user_list));
+    }
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-      // };
-      // }
-//     else {
-//   this.ntng ='nothing';
-//  }
- 
-//  }
- //       console.log('mm')
-    //       this.user_list.push(this.register.value);
-    //       console.log(this.user_list)
-    //       localStorage.setItem("name",JSON.stringify(this.user_list));
-    //       this.router.navigate(['login']);
-
-
- //     else {
-    //       console.log('kk')
-    //       // this.val1 = 'username and email already taken.try another!'
-    //       this.router.navigate(['register']);
+      
+  }
+    
+  
          

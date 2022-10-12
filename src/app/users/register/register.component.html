@@ -8,10 +8,12 @@
       <span class="text-dark" *ngIf="register.controls['fname'].dirty && register.hasError('required','fname')">*Full name is Required</span>
       <div class="form-group">
         <label for="mail">Email:</label>
-        <input type="text" class="form-control" id="email" placeholder="Enter email" [(ngModel)]="umail" name="email" formControlName="email">
+        <input type="email" class="form-control" id="email" placeholder="Enter email" [(ngModel)]="umail" name="email" formControlName="email">
       
       </div>
       <span class="text-dark" *ngIf="register.controls['email'].dirty && register.hasError('required','email')">*Email is Required</span>
+      
+      <span class="text-dark" >{{register.controls['email'].errors?.message}}</span>
       <div class="form-group">
         <label for="mail">Password:</label>
         <input type="text" class="form-control" id="pswd" placeholder="Enter Password"  name="pswd" formControlName="pswd">
