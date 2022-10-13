@@ -47,20 +47,19 @@ loginsubmit(){
   // }
   if (this.user_list[i].email == this.umail){
     if (this.user_list[i].pswd == this.upswd){
-      this.router.navigate(['products'])
+      this.router.navigate(['products']);
     }
     else {
-      this.login.get('pswd')?.setErrors({ message : 'password is Incorrect' })
+      this.login.get('pswd')?.setErrors({ message : 'password is Incorrect' });
     }
-    
-    }
+  
+  }
   else {
-    this.login.get('email')?.setErrors({ message : 'Email is not found' })
+    this.login.get('email')?.setErrors({ message : 'Email is not found' });
     
   }
-
 }
-  }
+}
 signupsubmit(){
   this.router.navigate(['register']);
 
