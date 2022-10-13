@@ -34,7 +34,7 @@ export class RegisterComponent implements OnInit {
   
   uname :any;
   umail :any;
-  // message :any;
+  
   
   signupsubmit(){
     

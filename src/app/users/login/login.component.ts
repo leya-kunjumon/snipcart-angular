@@ -13,11 +13,11 @@ export class LoginComponent implements OnInit {
   login:any = FormGroup;
   loginData:any;
   data :any;
-  data1 :any;
-  data2:any;
+  
   umail :any;
   upswd:any;
-  dataa :any;
+  user_list :any;
+  msg:any;
   constructor(private fb:FormBuilder,private router:Router,public share : SharedService) {}
   
   ngOnInit(): void {
@@ -26,25 +26,40 @@ export class LoginComponent implements OnInit {
     email:['',Validators.compose([Validators.required,Validators.email])],
     pswd:['',Validators.required]
   });
-  
+  if (localStorage.getItem('userlist')  ){
+        
+    let users :any = localStorage.getItem('userlist');
+    this.user_list = JSON.parse(users);
+    console.log(this.user_list);
+    
+  }
   }
 loginsubmit(){
    
-  this.loginData = localStorage.getItem('name');
-  console.log(this.loginData);
-  this.data = JSON.parse(this.loginData)
-  console.log(this.data[0].email);
-  console.log(this.data[0].pswd);
-  console.log(this.umail);
-  this.share.message = this.data[0].fname; 
-  this.data1 = this.data[0].email;
-  this.data2 = this.data[0].pswd;
-  if (this.data1 === this.umail && this.data2 === this.upswd){
-    this.router.navigate(['products']);
-
-  }else{
-    this.router.navigate(['login']);
+   for (let i=0;i<this.user_list.length;i++){
+    console.log(this.user_list[i].email)
+  //   if (this.user_list[i].email === this.umail && this.user_list[i].pswd === this.upswd ){
+  //      this.router.navigate(['products']);
+  //     }
+  //   else{
+  //     console.log('mm')
+  //     this.login.get('email')?.setErrors({ message : 'Creditentials is not found' }) ;
+  // }
+  if (this.user_list[i].email == this.umail){
+    if (this.user_list[i].pswd == this.upswd){
+      this.router.navigate(['products'])
+    }
+    else {
+      this.login.get('pswd')?.setErrors({ message : 'password is Incorrect' })
+    }
+    
+    }
+  else {
+    this.login.get('email')?.setErrors({ message : 'Email is not found' })
+    
   }
+
+}
   }
 signupsubmit(){
   this.router.navigate(['register']);
