@@ -13,6 +13,7 @@ import { ProductsComponent } from './users/products/products.component';
 import { NgxPaginationModule } from 'ngx-pagination';
 import { Ng2SearchPipeModule } from 'ng2-search-filter';
 import { OrderModule } from 'ngx-order-pipe';
+import { ProfileComponent } from './users/profile/profile.component';
 
 
 @NgModule({
@@ -22,7 +23,8 @@ import { OrderModule } from 'ngx-order-pipe';
     RegisterComponent,
     LoginComponent,
     DataserviceComponent,
-    ProductsComponent
+    ProductsComponent,
+    ProfileComponent
   ],
   imports: [
     BrowserModule,

@@ -27,8 +27,11 @@ export class ProductsComponent implements OnInit {
   constructor(public share:SharedService,private router:Router) { 
     
   }
-  display = true;
-  ngOnInit(): void {}
   
+  ngOnInit(): void {}
+  profile(){
+    
+    this.router.navigate(['profile']);
+  }
 
 }

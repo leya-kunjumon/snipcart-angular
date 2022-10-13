@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit ,Output,EventEmitter} from '@angular/core';
 import { FormBuilder,FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { SharedService } from 'src/app/services/shared.service';
@@ -17,7 +17,7 @@ export class LoginComponent implements OnInit {
   umail :any;
   upswd:any;
   user_list :any;
-  msg:any;
+  isLoggedin:Boolean = false;
   constructor(private fb:FormBuilder,private router:Router,public share : SharedService) {}
   
   ngOnInit(): void {
@@ -35,30 +35,22 @@ export class LoginComponent implements OnInit {
   }
   }
 loginsubmit(){
-   
-   for (let i=0;i<this.user_list.length;i++){
+  for (let i=0;i<this.user_list.length;i++){
     console.log(this.user_list[i].email)
-  //   if (this.user_list[i].email === this.umail && this.user_list[i].pswd === this.upswd ){
-  //      this.router.navigate(['products']);
-  //     }
-  //   else{
-  //     console.log('mm')
-  //     this.login.get('email')?.setErrors({ message : 'Creditentials is not found' }) ;
-  // }
-  if (this.user_list[i].email == this.umail){
-    if (this.user_list[i].pswd == this.upswd){
-      this.router.navigate(['products']);
+    if (this.user_list[i].email == this.umail){
+      if (this.user_list[i].pswd == this.upswd){
+        this.share.message = this.user_list[i].fname
+        this.router.navigate(['products']);
+        this.isLoggedin = true;
+      }
+      else {
+        this.login.get('pswd')?.setErrors({ message : 'password is Incorrect' });
+      }
     }
     else {
-      this.login.get('pswd')?.setErrors({ message : 'password is Incorrect' });
+      this.login.get('email')?.setErrors({ message : 'Email is not found' });
     }
-  
   }
-  else {
-    this.login.get('email')?.setErrors({ message : 'Email is not found' });
-    
-  }
-}
 }
 signupsubmit(){
   this.router.navigate(['register']);
