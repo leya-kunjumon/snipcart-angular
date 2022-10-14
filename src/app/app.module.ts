@@ -14,6 +14,7 @@ import { NgxPaginationModule } from 'ngx-pagination';
 import { Ng2SearchPipeModule } from 'ng2-search-filter';
 import { OrderModule } from 'ngx-order-pipe';
 import { ProfileComponent } from './users/profile/profile.component';
+import { ChangePasswordComponent } from './users/change-password/change-password.component';
 
 
 @NgModule({
@@ -24,7 +25,8 @@ import { ProfileComponent } from './users/profile/profile.component';
     LoginComponent,
     DataserviceComponent,
     ProductsComponent,
-    ProfileComponent
+    ProfileComponent,
+    ChangePasswordComponent
   ],
   imports: [
     BrowserModule,

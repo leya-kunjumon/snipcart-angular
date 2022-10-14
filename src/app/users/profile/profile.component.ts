@@ -11,8 +11,9 @@ export class ProfileComponent implements OnInit {
   
   constructor(private router:Router,public share : SharedService) { }
 
-  ngOnInit(): void {
-    console.log(this.share.message);
-  }
+  ngOnInit(): void {}
+  passwordChange(){
+    this.router.navigate(['changePassword']);
+  }  
 
 }

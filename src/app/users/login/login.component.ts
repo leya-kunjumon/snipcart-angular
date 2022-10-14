@@ -40,8 +40,12 @@ loginsubmit(){
     if (this.user_list[i].email == this.umail){
       if (this.user_list[i].pswd == this.upswd){
         this.share.message = this.user_list[i].fname
+        this.share.message1 = this.user_list[i].email;
+        this.share.message2 = this.user_list[i].pswd;
+
+
         this.router.navigate(['products']);
-        this.isLoggedin = true;
+        
       }
       else {
         this.login.get('pswd')?.setErrors({ message : 'password is Incorrect' });
