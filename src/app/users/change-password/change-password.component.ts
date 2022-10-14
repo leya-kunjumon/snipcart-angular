@@ -33,15 +33,17 @@ Changesubmit(){
   console.log('loo')
   for(let i=0;i<this.user_list.length;i++) {
     console.log(this.user_list[i].pswd)
-    if (this.user_list[i].pswd == this.oldpswd){
+    if (this.user_list[i].email == this.share.message1){
+     console.log(this.user_list[i].pswd == this.oldpswd)
      this.user_list[i].pswd = this.newupswd;
      this.share.message2 = this.newupswd;
+     localStorage.setItem("userlist",JSON.stringify(this.user_list));
      
 
   }
 }
   this.router.navigate(['profile']);
-  localStorage.setItem("userlist",JSON.stringify(this.user_list));
+  
 }
 
 

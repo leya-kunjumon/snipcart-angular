@@ -37,8 +37,10 @@
         />
         <div class="card-body">
           <h4 class="card-title">{{ prod.name }}</h4>
-          <p class="card-text">{{ prod.price }}/- Rs</p>
-          <button class="btn btn-primary text-center">View</button>
+          <p class="card-text">{{ prod.price }} Rs</p>
+          <button class="btn btn-primary text-center " style="width:100px ;"> View</button>
+          <button class="btn btn-danger text-center" style="margin-left:12px;width:130px ;" (click)=addtocart(prod)>Add to Cart</button>
+
         </div>
       </div>
     </div>

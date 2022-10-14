@@ -15,6 +15,8 @@ import { Ng2SearchPipeModule } from 'ng2-search-filter';
 import { OrderModule } from 'ngx-order-pipe';
 import { ProfileComponent } from './users/profile/profile.component';
 import { ChangePasswordComponent } from './users/change-password/change-password.component';
+import { CartComponent } from './users/cart/cart.component';
+import { HeaderComponent } from './users/header/header.component';
 
 
 @NgModule({
@@ -26,7 +28,9 @@ import { ChangePasswordComponent } from './users/change-password/change-password
     DataserviceComponent,
     ProductsComponent,
     ProfileComponent,
-    ChangePasswordComponent
+    ChangePasswordComponent,
+    CartComponent,
+    HeaderComponent
   ],
   imports: [
     BrowserModule,
