@@ -3,6 +3,8 @@ import { SharedService } from 'src/app/services/shared.service';
 import { Router } from '@angular/router';
 import { CartService } from 'src/app/services/cart.service';
 import { ProductsService } from 'src/app/services/products.service';
+import { ProductsViewService } from 'src/app/services/products-view.service';
+
 
 @Component({
   selector: 'app-products',
@@ -27,7 +29,9 @@ export class ProductsComponent implements OnInit {
     {id:9,name:'Oreo Cake',imag:'https://simshomekitchen.com/wp-content/uploads/2022/07/cookies-and-cream-chocolate-cake.png',price:1100},
   ];
   
-  constructor(public share:SharedService,private router:Router,private cartService : CartService,public product:ProductsService) { 
+  constructor(public share:SharedService,private router:Router,private cartService : CartService,public product:ProductsService,
+    
+    public view :ProductsViewService) { 
     
   }
   productList : any;
@@ -47,6 +51,15 @@ export class ProductsComponent implements OnInit {
 
   addtocart(prod: any){
     this.cartService.addtoCart(prod);
+  }
+
+  productView(prod:any){
+    console.log(prod)
+    this.view.productView = prod;
+    console.log(this.view.productView )
+    this.router.navigate(['productview']);
+    
+
   }
 
 }

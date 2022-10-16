@@ -17,6 +17,7 @@ import { ProfileComponent } from './users/profile/profile.component';
 import { ChangePasswordComponent } from './users/change-password/change-password.component';
 import { CartComponent } from './users/cart/cart.component';
 import { HeaderComponent } from './users/header/header.component';
+import { ProductViewComponent } from './users/product-view/product-view.component';
 
 
 @NgModule({
@@ -30,7 +31,8 @@ import { HeaderComponent } from './users/header/header.component';
     ProfileComponent,
     ChangePasswordComponent,
     CartComponent,
-    HeaderComponent
+    HeaderComponent,
+    ProductViewComponent
   ],
   imports: [
     BrowserModule,
