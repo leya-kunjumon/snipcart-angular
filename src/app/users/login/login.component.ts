@@ -42,9 +42,8 @@ loginsubmit(){
         this.share.message = this.user_list[i].fname
         this.share.message1 = this.user_list[i].email;
         this.share.message2 = this.user_list[i].pswd;
-
-
         this.router.navigate(['products']);
+        this.share.islogged = true;
         
       }
       else {

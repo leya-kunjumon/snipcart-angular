@@ -14,13 +14,11 @@ export class CartComponent implements OnInit {
 
   ngOnInit(): void {
     console.log('lll')
-     this.products = this.cartService.getProducts()
-    // .subscribe(res=>{
-    //   console.log('koo')
-    //   this.products = res;
-    //   console.log(this.products)
-    //   this.grandTotal = this.cartService.getTotalPrice();
-    // })
+    this.cartService.getProducts()
+    .subscribe(res=>{
+      this.products = res;
+      this.grandTotal = this.cartService.getTotalPrice();
+    })
    
   }
   removeItem(item: any){

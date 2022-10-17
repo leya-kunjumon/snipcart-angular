@@ -8,6 +8,7 @@ export class SharedService {
   public message :any;
   public message1 :any;
   public message2 :any;
+  public islogged :boolean = false;
 
 
 }

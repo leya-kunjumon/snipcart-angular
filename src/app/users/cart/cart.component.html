@@ -19,17 +19,17 @@
                         <tr *ngFor="let item of products; let i = index">
                             <td>{{i+1}}</td>
                             <td>{{item.name}}</td>
-                            <td><img style="width: 120px;" [src]="item.image" alt=""></td>
+                            <td><img style="width: 120px;" [src]="item.imag" alt=""></td>
                             
                             <th style="width: 12%;">{{item.price}}</th>
                             <!-- <td style="width: 12%;">{{item.quantity}}</td> -->
-                            <td style="width: 12%;">{{item.total}}</td>
+                            <td style="width: 12%;">{{item.price}}</td>
                             <td>
                                 <button (click)="removeItem(item)" class="btn btn-danger"><i class="fas fa-trash-alt"></i></button>
                             </td>
                         </tr>
                         <tr>
-                            <td colspan="4"></td>
+                            <td colspan="5"></td>
                             <td><button (click)="emptycart()" class="btn btn-danger">Empty Cart</button></td>
                             <td><button routerLink="/products" class="btn btn-primary">Shop More</button></td>
                            

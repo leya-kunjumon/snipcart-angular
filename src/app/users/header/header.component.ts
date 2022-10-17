@@ -21,6 +21,7 @@ export class HeaderComponent implements OnInit {
   logout(){
     this.share.message ='';
     this.router.navigate(['login']);
+    this.share.islogged =false;
 
 }
 }
