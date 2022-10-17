@@ -1,6 +1,6 @@
 <div class="row" style="padding-left:1200px ;display:inline-block">
   
-    <h6 class="mt-3 " style="color:blue;">{{share.message}} --><a class="btn btn-danger " style="width:120px ;margin-right:40px" (click)="profile()" >View Profile</a></h6>
+    <h6 class="mt-3 " style="color:blue;" *ngIf="share.islogged ==true">{{share.message}} --><a class="btn btn-danger " style="width:120px ;margin-right:40px" (click)="profile()" >View Profile</a></h6>
     
 </div>
 
